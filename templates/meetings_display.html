@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+
+</head>
+<h1>From the events below select ones {{ message }}</h1>
+ <form action="" method="post" novalidate>
+
+     {% for i in range (startIndex, endIndex) %}
+        <p>Starting date: {{ data[i].startDate }}<br>
+        Ending date: {{ data[i].endDate }}<br>
+        Thumbnail:<br>
+        <img src="{{url_for('static', filename = data[i].thumbnail)}}"
+            width = "50"
+            height = "50"><br>
+        <input type="checkbox" id=i name="meetingsCheckbox" value="{{ i }}">
+        <label for=i> {{ checkboxMsg }}</label><br>
+        -------------------------------------------<br>
+        </p>
+    {% endfor %}
+
+     <p><input type="submit" value="Submit"></p>
+
+    </form>
+
+<p><button onClick="window.location.href='http://127.0.0.1:5000';">
+Go back to the main page
+</button></p>
+
+</body>
+</html>
+
+

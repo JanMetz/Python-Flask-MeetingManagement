@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log-in page</title>
+
+</head>
+
+<body>
+ <form action="" method="post" novalidate>
+     {{ form.hidden_tag() }}
+
+     <p>{{ form.pinCode.label }}<br>
+     {{ form.pinCode(size=32) }}
+     {{ form.pinCode.description }}<br>
+     {% for error in form.pinCode.errors %}
+            <span style="color: red;">{{ error }}</span>
+     {% endfor %}</p>
+
+      <p>{{ form.reservationCode.label }}<br>
+     {{ form.reservationCode(size=32) }}
+     {{ form.reservationCode.description }}<br>
+     {% for error in form.reservationCode.errors %}
+            <span style="color: red;">{{ error }}</span>
+         {% endfor %}</p>
+
+
+     <p>{{ form.submitButton(size=32) }}</p>
+    </form>
+
+<p><button onClick="window.location.href='http://127.0.0.1:5000';">
+Go back to the main page
+</button></p>
+
+</body>
+</html>
+
+

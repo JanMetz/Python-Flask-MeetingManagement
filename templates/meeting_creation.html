@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload new File</title>
+</head>
+<body>
+    <script>
+    var today = new Date();
+    </script>
+    <h1>Create new meeting</h1>
+    <form method=post enctype=multipart/form-data>
+        {{ form.hidden_tag() }}
+
+        <p>{{ form.meetingStart.label }}<br>
+        {{ form.meetingStart(size=32) }}
+        {{ form.meetingStart.description }}<br>
+        {% for error in form.meetingStart.errors %}
+            <span style="color: red;">{{ error }}</span>
+         {% endfor %}</p>
+
+        <p>{{ form.meetingStart_hour.label }}<br>
+        {{ form.meetingStart_hour(size=32) }}
+        {{ form.meetingStart_hour.description }}<br>
+        {% for error in form.meetingStart_hour.errors %}
+            <span style="color: red;">{{ error }}</span>
+         {% endfor %}</p>
+
+        <p>{{ form.meetingEnd.label }}<br>
+        {{ form.meetingEnd(size=32) }}
+        {{ form.meetingEnd.description }}<br>
+        {% for error in form.meetingEnd.errors %}
+            <span style="color: red;">{{ error }}</span>
+         {% endfor %}</p>
+
+        <p>{{ form.meetingEnd_hour.label }}<br>
+        {{ form.meetingEnd_hour(size=32) }}
+        {{ form.meetingEnd_hour.description }}<br>
+        {% for error in form.meetingEnd_hour.errors %}
+            <span style="color: red;">{{ error }}</span>
+         {% endfor %}</p>
+
+        <p>Thumbnail:  {{ form.thumbnail }}<br>
+        {% for error in form.thumbnail.errors %}
+            <span style="color: red;">{{ error }}</span><br>
+        {% endfor %}</p>
+
+        <p>{{ form.submitButton(size=32) }}</p>
+    </form>
+
+<p><button onClick="window.location.href='http://127.0.0.1:5000';">
+Go back to the main page
+</button></p>
+
+</body>
+</html>
