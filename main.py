@@ -107,13 +107,13 @@ class MM:  # short for Meeting Management
     @staticmethod
     def saveData():
 
-        # I left this in case the database file would get corrupted. If so, you can easily recreate it
+        """# I left this in case the database file would get corrupted. If so, you can easily recreate it
         # by uncommenting this part and the one in main(). Here remember to comment out the MM.file.sync()
         MM.file['meetings'] = MM.meetings
         MM.file['meetingsStartIndex'] = MM.meetingsStartIndex
         MM.file['clients'] = MM.clients
-        MM.file['reservationCodes'] = MM.reservationCodes
-        #MM.file.sync()
+        MM.file['reservationCodes'] = MM.reservationCodes"""
+        MM.file.sync()
         MM.file.close()
 
 
@@ -241,7 +241,7 @@ def meetingCreation():
 
 if __name__ == '__main__':
 
-    # I left this in case the database file would get corrupted. If so, you can easily recreate it
+    """# I left this in case the database file would get corrupted. If so, you can easily recreate it
     # by uncommenting this part and the one in MM.saveData()
     MM.meetings.append(
         Meetings(datetime(2022, 3, 8, 12, 30, 0, ), datetime(2022, 3, 11, 14, 30, 0, ), "a.jpg"))
@@ -255,8 +255,7 @@ if __name__ == '__main__':
         Meetings(datetime(2023, 1, 14, 14, 30, 0, ), datetime(2023, 1, 14, 16, 30, 0, ), "e.jpg"))
 
     MM.meetings.sort(key=lambda inst: inst.startDate)
-    MM.saveData()
-    print(MM.meetings[-1].startDate)
-    #MM.loadData()
+    MM.saveData()"""
+    MM.loadData()
 
     app.run(debug=True)
